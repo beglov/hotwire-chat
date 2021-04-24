@@ -1,5 +1,8 @@
 <div class="container">
   <%= render 'form', post: @post %>
 
-  <%= render @posts %>
+  <%= turbo_stream_from :posts %>
+  <%= turbo_frame_tag 'posts' do %>
+    <%= render @posts %>
+  <% end %>
 </div>
